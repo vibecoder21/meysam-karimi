@@ -176,7 +176,11 @@
     .services-section > .container > p { color: rgba(250, 247, 242, 0.7); max-width: 60ch; margin-bottom: 3rem; }
     .services-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(250, 247, 242, 0.1); }
     @media(min-width: 768px) { .services-grid { grid-template-columns: 1fr 1fr; } }
-    .service-card { background: rgba(250, 247, 242, 0.03); padding: 2.5rem; transition: all 0.4s var(--transition-smooth); position: relative; overflow: hidden; }
+    .service-card { background: rgba(250, 247, 242, 0.12); padding: 2.5rem; transition: all 0.4s var(--transition-smooth); position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--ochre); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--transition-smooth); }
+    .service-card:hover { background: rgba(250, 247, 242, 0.2); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card .arrow { font-size: 1.5rem; color: var(--ochre); margin-bottom: 1.5rem; display: block; transition: transform 0.3s var(--transition-bounce); }
     .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--ochre); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--transition-smooth); }
     .service-card:hover { background: rgba(250, 247, 242, 0.07); }
     .service-card:hover::before { transform: scaleX(1); }
@@ -348,12 +352,11 @@
       <span class="line"><span>Karimi</span></span>
     </h1>
     <p class="hero-subtitle">
-      <strong>Visiting Professor at NYU</strong> teaching at the intersection of AI and operations. 
-      <strong>GenAI Operations Lead at Scale AI</strong>, building the infrastructure that powers generative AI.
+      <strong>GenAI Operations Lead at Scale AI</strong>, building the infrastructure that powers generative AI. <strong>Visiting Professor at NYU</strong> teaching at the intersection of AI and operations.
     </p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <span class="num" data-count="100">100+</span>
+        <span class="num" data-count="107">107+</span>
         <span class="label">Countries Visited</span>
       </div>
       <div class="hero-stat">
@@ -388,10 +391,10 @@
         <h2>I help organizations understand and operationalize Generative AI.</h2>
       </div>
       <div class="reveal">
-        <p>From how frontier models are actually trained and evaluated, to how enterprises deploy them at scale — most of what I know, I've learned from the inside. Working at the intersection of AI development, data operations, and model quality at <strong>Scale AI</strong> gives me a rare vantage point. And increasingly, it's exactly what investors, consultants, and strategy teams need when making decisions about the AI landscape.</p>
-        <p>Born in Shiraz, Iran in 1982, I moved to Hamburg, Germany at the age of three and grew up there for over twenty-five years. I'm a German citizen and speak four languages — <strong>Farsi, German, English, and French</strong> — which means I can engage with European and Middle Eastern clients directly, without translation layers.</p>
-        <p>My MBA took me across universities in Germany, the UK, China, and the US. After graduation, my career has spanned Riyadh, Vienna, Dublin, Berlin, and New York — from heading marketing at a supermarket chain in Saudi Arabia, to building businesses at Google, Yum Brands, and Mastercard, to co-founding <strong>Tuli Technologies</strong>, a social commerce platform.</p>
-        <p>After nearly two decades in the corporate world, I took a year-long sabbatical to travel the world. I've now visited almost 100 countries and still venture toward new unknown places whenever I can. When I'm not working with AI, you'll find me diving with sharks. 🦈</p>
+        <p>GenAI Operations Lead at <strong>Scale AI</strong>, where I build the infrastructure and evaluation frameworks that power frontier model development. My work spans RLHF/RLAIF pipelines, synthetic data strategy, and quality assurance at scale — giving me a practitioner's view of how AI systems are actually built and deployed.</p>
+        <p>As a <strong>Visiting Professor at NYU</strong>, I teach graduate-level courses on AI operations and generative AI systems, bridging industry practice with academic rigor. I advise student research at the intersection of machine learning and organizational strategy.</p>
+        <p>Fluent in <strong>Farsi, German, English, and French</strong> — enabling direct engagement with European and Middle Eastern clients and markets without translation layers. My background spans operations, product strategy, and digital transformation across Google, Mastercard, Yum Brands, and as co-founder of Tuli Technologies.</p>
+        <p>Available for expert network calls, advisory engagements, and consulting projects at the intersection of AI research, education, and industry practice.</p>
         <div class="lang-badges">
           <div class="lang-badge"><span class="lang">English</span><span class="level">Fluent</span></div>
           <div class="lang-badge"><span class="lang">German</span><span class="level">Native</span></div>
@@ -457,8 +460,18 @@
       </div>
     </div>
     <div class="spacer-sm"></div>
-    <div class="reveal">
-      <p style="color: rgba(250,247,242,0.6); max-width: 70ch; font-size: 0.9rem;">Available for expert network calls, advisory engagements, and consulting projects. If you're an expert network associate (<strong style="color: var(--cream);">AlphaSights, ThirdBridge, GLG, Guidepoint, Coleman Research, Inex One, OfficeHours, Zintro</strong>) looking for someone who can speak to the AI data and model development ecosystem — I'm your person.</p>
+    <div class="reveal" style="text-align: center;">
+      <p style="color: rgba(250,247,242,0.7); max-width: 70ch; margin: 0 auto 1.5rem; font-size: 0.9rem;">Available for expert network calls, advisory engagements, and consulting projects.</p>
+      <div class="expert-networks" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">AlphaSights</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">ThirdBridge</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">GLG</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">Guidepoint</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">Coleman Research</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">Inex One</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">OfficeHours</span>
+        <span class="network-badge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; background: rgba(250,247,242,0.1); border: 1px solid rgba(250,247,242,0.2); color: var(--cream); border-radius: 100px; transition: all 0.3s ease;">Zintro</span>
+      </div>
     </div>
   </div>
   <div class="spacer"></div>
@@ -482,16 +495,6 @@
     <div class="spacer-sm"></div>
     <div class="exp-timeline">
       <div class="exp-item highlight reveal">
-        <div class="dates">2023 – Present</div>
-        <div class="org">New York University</div>
-        <div class="role">Visiting Professor</div>
-        <div class="desc">
-          <p>Teaching graduate-level courses on AI operations, generative AI systems, and the business of machine learning.</p>
-          <p>Advising student research at the intersection of ML and organizational strategy. Bridging industry practice with academic rigor.</p>
-        </div>
-        <div class="location">New York, NY</div>
-      </div>
-      <div class="exp-item highlight reveal">
         <div class="dates">2022 – Present</div>
         <div class="org">Scale AI</div>
         <div class="role">GenAI Operations Lead</div>
@@ -500,6 +503,16 @@
           <p>Building data infrastructure, evaluation frameworks (RLHF/RLAIF), and deployment pipelines that power enterprise LLM applications. Overseeing human feedback pipelines, synthetic data strategy, and model quality assurance at scale.</p>
         </div>
         <div class="location">San Francisco / Remote</div>
+      </div>
+      <div class="exp-item highlight reveal">
+        <div class="dates">2023 – Present</div>
+        <div class="org">New York University</div>
+        <div class="role">Visiting Professor</div>
+        <div class="desc">
+          <p>Teaching graduate-level courses on AI operations, generative AI systems, and the business of machine learning.</p>
+          <p>Advising student research at the intersection of ML and organizational strategy. Bridging industry practice with academic rigor.</p>
+        </div>
+        <div class="location">New York, NY</div>
       </div>
       <div class="exp-item reveal">
         <div class="dates">2018 – 2022</div>
@@ -577,9 +590,19 @@
   <div class="container">
     <div class="reveal" style="text-align: center;">
       <span class="eyebrow">Wanderlust</span>
-      <div class="travel-counter">
-        <span class="num" id="travelCount">100+</span>
-        <span class="label">Countries<br>& Counting</span>
+      <div class="travel-stats" style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-bottom: 3rem;">
+        <div class="travel-stat" style="text-align: center;">
+          <span class="num" style="font-family: 'Outfit', sans-serif; font-size: clamp(4rem, 12vw, 8rem); font-weight: 900; line-height: 0.9; color: var(--ochre); display: block;">107+</span>
+          <span class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted-light);">Countries</span>
+        </div>
+        <div class="travel-stat" style="text-align: center;">
+          <span class="num" style="font-family: 'Outfit', sans-serif; font-size: clamp(4rem, 12vw, 8rem); font-weight: 900; line-height: 0.9; color: var(--coral); display: block;">1000+</span>
+          <span class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted-light);">Cities</span>
+        </div>
+        <div class="travel-stat" style="text-align: center;">
+          <span class="num" style="font-family: 'Outfit', sans-serif; font-size: clamp(4rem, 12vw, 8rem); font-weight: 900; line-height: 0.9; color: var(--teal-light); display: block;">6</span>
+          <span class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted-light);">Continents</span>
+        </div>
       </div>
     </div>
     <div class="world-map reveal">
@@ -623,10 +646,10 @@
       </svg>
     </div>
     <div class="reveal">
-      <p class="travel-quote">The world is a book and those who do not travel read only one page</p>
+      <p class="travel-quote">Travel is the only thing you buy that makes you richer</p>
     </div>
     <div class="reveal" style="text-align: center; margin-bottom: 2rem;">
-      <p style="color: var(--text-muted-light); max-width: 60ch; margin: 0 auto; font-size: 0.95rem;">From the souks of Morocco to the reefs of the Maldives, from the streets of Tokyo to the ruins of Peru — every destination has shaped my perspective on business, culture, and what it means to build globally.</p>
+      <p style="color: var(--text-muted-light); max-width: 65ch; margin: 0 auto; font-size: 0.95rem; line-height: 1.7;">From the souks of Morocco to the reefs of the Maldives, from the streets of Tokyo to the ruins of Peru — 107 countries and over 1,000 cities across six continents. Every destination has shaped my perspective on business, culture, and what it means to build for a global audience. When I'm not working with AI, you'll find me diving with sharks or planning the next adventure.</p>
     </div>
   </div>
   <div class="spacer"></div>
@@ -665,16 +688,16 @@
   <div class="container">
     <div class="reveal">
       <span class="eyebrow">Published Works</span>
-      <h2>Five books on social media and eCommerce.</h2>
+      <h2>Five books on digital transformation and emerging tech.</h2>
     </div>
     <div class="spacer-sm"></div>
     <div class="book-showcase reveal">
       <img src="book-cover.jpg" alt="Book cover by Meysam Karimi">
       <div>
-        <h3>Social Media & eCommerce Series</h3>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">Published five books covering the intersection of social media strategy and digital commerce — written during the early days of social commerce and platform monetization.</p>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">My writing spans the evolution of digital platforms — from early social media marketing to the rise of eCommerce and now to the AI transformation reshaping every industry.</p>
-        <p style="color: var(--text-muted);">The books were written during a period of intense change in digital commerce, capturing insights that remain relevant as we enter the next wave of AI-driven business transformation.</p>
+        <h3>Digital Transformation & Emerging Tech Series</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Published five books on digital transformation, emerging technologies, and the future of commerce — covering the intersection of social media strategy, digital platforms, and technology-driven business innovation.</p>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">My writing chronicles the evolution of digital platforms — from the rise of social commerce and mobile payments to blockchain adoption and now the AI transformation reshaping every industry.</p>
+        <p style="color: var(--text-muted);">Written during periods of intense technological change, these works capture frameworks for digital transformation that remain relevant as we navigate the next wave of AI-driven business evolution.</p>
       </div>
     </div>
   </div>
@@ -826,7 +849,6 @@ function initAnimations() {
   });
   
   gsap.from('.hero-subtitle', {
-    opacity: 0,
     y: 30,
     duration: 1,
     ease: 'power3.out',
@@ -834,7 +856,6 @@ function initAnimations() {
   });
   
   gsap.from('.hero-stat', {
-    opacity: 0,
     y: 30,
     duration: 0.8,
     stagger: 0.1,
@@ -858,10 +879,10 @@ function initAnimations() {
     const isRight = el.classList.contains('reveal-right');
     const isScale = el.classList.contains('reveal-scale');
     
-    let fromVars = { opacity: 0, y: 40 };
-    if (isLeft) fromVars = { opacity: 0, x: -40 };
-    if (isRight) fromVars = { opacity: 0, x: 40 };
-    if (isScale) fromVars = { opacity: 0, scale: 0.9 };
+    let fromVars = { y: 40 };
+    if (isLeft) fromVars = { x: -40 };
+    if (isRight) fromVars = { x: 40 };
+    if (isScale) fromVars = { scale: 0.9 };
     
     gsap.from(el, {
       ...fromVars,
@@ -877,7 +898,6 @@ function initAnimations() {
   
   // Experience timeline items
   gsap.from('.exp-item', {
-    opacity: 0,
     x: -30,
     duration: 0.8,
     stagger: 0.1,
@@ -891,7 +911,6 @@ function initAnimations() {
   
   // Service cards
   gsap.from('.service-card', {
-    opacity: 0,
     y: 30,
     duration: 0.7,
     stagger: 0.08,
@@ -905,7 +924,6 @@ function initAnimations() {
   
   // Article cards
   gsap.from('.article-card', {
-    opacity: 0,
     y: 30,
     duration: 0.8,
     stagger: 0.15,
