@@ -116,8 +116,8 @@
     .menu-toggle span { display: block; width: 24px; height: 2px; background: currentColor; transition: all 0.3s ease; }
 
     /* Marquee Strip */
-    .marquee-strip { background: var(--dark); color: var(--cream); padding: 1.2rem 0; overflow: hidden; position: relative; margin-top: 64px; }
-    .marquee-strip { background: var(--dark); color: var(--cream); padding: 1.2rem 0; overflow: hidden; position: relative; }
+    .marquee-strip { background: var(--dark); color: var(--cream); padding: 0; overflow: hidden; position: relative; margin-top: 64px; height: 48px; display: flex; align-items: center; }
+    .marquee-strip { background: var(--dark); color: var(--cream); padding: 0; overflow: hidden; position: relative; height: 48px; display: flex; align-items: center; }
     .marquee-content { display: flex; width: max-content; animation: marquee 40s linear infinite; }
     .marquee-content span { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap; padding: 0 2.5rem; opacity: 0.8; }
     .marquee-content span::after { content: '•'; margin-left: 2rem; opacity: 0.4; }
@@ -393,7 +393,7 @@
       <div class="reveal">
         <p>GenAI Operations Lead at <strong>Scale AI</strong>, where I build the infrastructure and evaluation frameworks that power frontier model development. My work spans RLHF/RLAIF pipelines, synthetic data strategy, and quality assurance at scale, giving me a practitioner's view of how AI systems are actually built and deployed.</p>
         <p>As a <strong>Visiting Professor at NYU</strong>, I teach graduate-level courses on AI operations and generative AI systems, bridging industry practice with academic rigor. I advise student research at the intersection of machine learning and organizational strategy.</p>
-        <p>Fluent in <strong>Farsi, German, English, and French</strong>, enabling direct engagement with European and Middle Eastern clients and markets without translation layers. My background spans operations, product strategy, and digital transformation across Google, Mastercard, Yum Brands, and as founder of <a href="https://wikuscapital.com" target="_blank" style="color: var(--text); text-decoration: underline; text-underline-offset: 3px;"><strong>Wikus Ventures</strong></a>, where I invest in and advise emerging technology startups at the intersection of AI, fintech, and digital commerce.</p>
+        <p>Fluent in <strong>Farsi, German, English, and French</strong>, enabling direct engagement with European and Middle Eastern clients and markets without translation layers. My background spans operations, product strategy, and digital transformation across Google, Mastercard, Yum Brands, and as founder of <a href="https://wikuscapital.com" target="_blank" style="color: var(--text); text-decoration: underline; text-underline-offset: 3px;"><strong>Wikus Ventures</strong></a>, where I invest in and advise emerging technology startups at the intersection of AI, Robotics and Blockchain.</p>
         <p>Available for expert network calls, advisory engagements, and consulting projects at the intersection of AI research, education, and industry practice.</p>
         <div class="lang-badges">
           <div class="lang-badge"><span class="lang">English</span><span class="level">Fluent</span></div>
@@ -495,73 +495,75 @@
     <div class="spacer-sm"></div>
     <div class="exp-timeline">
       <div class="exp-item highlight reveal">
-        <div class="dates">2022 – Present</div>
+        <div class="dates">Jun 2023 - Present</div>
         <div class="org">Scale AI</div>
-        <div class="role">GenAI Operations Lead</div>
+        <div class="role">GenAI Ops & Infra Lead</div>
         <div class="desc">
-          <p>Leading operations for generative AI products at the company powering AI development for the world's most important model builders.</p>
-          <p>Building data infrastructure, evaluation frameworks (RLHF/RLAIF), and deployment pipelines that power enterprise LLM applications. Overseeing human feedback pipelines, synthetic data strategy, and model quality assurance at scale.</p>
+          <p>Leading large-scale AI training operations for LLMs and robotics and infrastructure (GPUs, Neoclouds, Inference APIs) at the intersection of ML alignment, data engineering, and product ops.</p>
+          <p>Designing and leading RLHF and SFT pipelines for multimodal and agentic AI systems. Authoring expert domain rubrics and Chain-of-Thought frameworks used to shape how reward models evaluate model outputs. Owning QA and data management to consistently hit 85-90%+ accuracy thresholds for AI reward model training data.</p>
         </div>
-        <div class="location">San Francisco / Remote</div>
+        <div class="location">San Francisco, CA</div>
       </div>
       <div class="exp-item highlight reveal">
-        <div class="dates">2018 – Present</div>
-        <div class="org">Wikus Ventures</div>
-        <div class="role">Founder</div>
-        <div class="desc">
-          <p>Founded Wikus Ventures to invest in and advise emerging technology startups at the intersection of AI, fintech, and digital commerce.</p>
-          <p>Building a portfolio of ventures focused on frontier technologies and transformative business models.</p>
-        </div>
-        <div class="location">New York, NY</div>
-      </div>
-      <div class="exp-item reveal">
-        <div class="dates">2018 – 2022</div>
-        <div class="org">World Poker Tour</div>
-        <div class="role">VP, Strategy & Business Development</div>
-        <div class="desc">
-          <p>Drove strategic partnerships and business development initiatives for the World Poker Tour. Led digital expansion and international market growth.</p>
-        </div>
-        <div class="location">Las Vegas / Global</div>
-      </div>
-      <div class="exp-item highlight reveal">
-        <div class="dates">2023 – Present</div>
+        <div class="dates">Oct 2023 - Present</div>
         <div class="org">New York University</div>
         <div class="role">Visiting Professor</div>
         <div class="desc">
-          <p>Teaching graduate-level courses on AI operations, generative AI systems, and the business of machine learning.</p>
-          <p>Advising student research at the intersection of ML and organizational strategy. Bridging industry practice with academic rigor.</p>
+          <p>Teaching graduate-level and professional courses on the operational backbone of modern AI systems, bridging industry practice and academic rigor.</p>
+          <p>Courses: Data Labeling & Annotation Operations, Agentic Evaluations & RL Environments, Forward Deployed Engineering. Courses draw directly on active industry work in GenAI operations, RLHF pipelines, and enterprise AI delivery.</p>
         </div>
         <div class="location">New York, NY</div>
       </div>
+      <div class="exp-item highlight reveal">
+        <div class="dates">Jan 2022 - Present</div>
+        <div class="org">Wikus Ventures</div>
+        <div class="role">Founder</div>
+        <div class="desc">
+          <p>Wikus Ventures has a portfolio of 20+ emerging tech companies, including several unicorns like OpenAI, Cerebras Systems, Anthropic, Phantom and others.</p>
+        </div>
+        <div class="location">Miami, FL</div>
+      </div>
       <div class="exp-item reveal">
-        <div class="dates">2017 – 2018</div>
+        <div class="dates">Apr 2021 - Jun 2023</div>
+        <div class="org">WPT Global</div>
+        <div class="role">General Manager, Innovation Lab</div>
+        <div class="desc">
+          <p>Reporting to CEO. Focused on Web3 technology wave: NFTs, Metaverse, Blockchain Games.</p>
+          <p>Hired and managed Web3 core team. Managed $3M+ P&L. Launched premier NFT auction with Phil Ivey (Moments), generative-art 3D NFT avatar collection (Gamavrs), and Universal Wallet supporting Ethereum, Polygon, Solana (Gama Wallet).</p>
+        </div>
+        <div class="location">Anaheim, CA</div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="dates">Oct 2017 - Apr 2021</div>
         <div class="org">Mastercard</div>
-        <div class="role">VP, Digital Payments & Blockchain</div>
+        <div class="role">Vice President, Digital Products</div>
         <div class="desc">
-          <p>Led digital payments strategy and blockchain initiatives at Mastercard. Drove partnerships and product development at the intersection of payments and emerging technology.</p>
+          <p>Reporting to EVP, Blockchain & Crypto Currencies. Led digital product innovation including blockchain, digital checkout, network tokenization, digital card issuance, P2P payments, and cross-border payments.</p>
+          <p>Launched Merchant Services partnerships team from scratch. Signed multiple global deals scaling digital products across North America, South America, Europe, APAC and MEA.</p>
         </div>
-        <div class="location">New York, NY</div>
+        <div class="location">San Francisco, CA</div>
       </div>
       <div class="exp-item reveal">
-        <div class="dates">2014 – 2016</div>
-        <div class="org">Yum Brands</div>
-        <div class="role">Digital Transformation Lead</div>
+        <div class="dates">2015 - 2017</div>
+        <div class="org">Yum! Brands</div>
+        <div class="role">Director, Digital Ventures</div>
         <div class="desc">
-          <p>Led digital transformation for iconic brands including Pizza Hut, KFC, and Taco Bell. Drove mobile ordering, delivery platforms, and customer experience innovation across global markets.</p>
+          <p>Reporting to Chief Digital Officer. Built new digital partnerships department from scratch and created new venture operation with VCs in Silicon Valley.</p>
+          <p>Executed partnerships with Apple, Google, Facebook and Twitter. Launched Messenger Bots, Alexa Ordering Skill with Amazon. P+L responsibility of $5M annually, generated $2M surplus in year two.</p>
         </div>
-        <div class="location">New York, NY</div>
+        <div class="location">Plano, TX</div>
       </div>
       <div class="exp-item reveal">
-        <div class="dates">2009 – 2014</div>
+        <div class="dates">2010 - 2015</div>
         <div class="org">Google</div>
-        <div class="role">Product & Strategy, Payments Group</div>
+        <div class="role">Partnerships Lead, Shopping & Payments</div>
         <div class="desc">
-          <p>Joined Google at EMEA HQ in Dublin, Ireland. After an acquisition, helped with the merger of startup DailyDeal in Berlin.</p>
-          <p>Moved to New York City to help lead the launch of the Google Payments Group. Five years of building and scaling payments products across markets.</p>
+          <p>Developed go-to-market strategy for commerce products (Shopping, Payments). Built senior level relationships with Fortune 500 retailers and executed strategic partnership deals.</p>
+          <p>Negotiated deals with Microsoft, Groupon, Macy's, and Best Buy. Generated over $65M in GMV and 25M transactions for Google Pay and Google Shopping.</p>
         </div>
-        <div class="location">Dublin / Berlin / New York</div>
+        <div class="location">New York, NY</div>
       </div>
-    </div>
+    </div></div>
   </div>
   <div class="spacer"></div>
 </section>
