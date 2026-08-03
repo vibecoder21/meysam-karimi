@@ -263,11 +263,8 @@
     /* Scroll Progress */
     .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--terracotta), var(--ochre), var(--teal)); z-index: 10001; transform-origin: left; transform: scaleX(0); }
 
-    /* Reveal Animations */
-    .reveal { opacity: 0; transform: translateY(40px); }
-    .reveal-left { opacity: 0; transform: translateX(-40px); }
-    .reveal-right { opacity: 0; transform: translateX(40px); }
-    .reveal-scale { opacity: 0; transform: scale(0.9); }
+    /* Reveal Animations - visible by default, GSAP enhances */
+    .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1; }
 
     /* Responsive */
     @media(max-width: 767px) {
@@ -356,19 +353,19 @@
     </p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <span class="num" data-count="100">0</span>
+        <span class="num" data-count="100">100+</span>
         <span class="label">Countries Visited</span>
       </div>
       <div class="hero-stat">
-        <span class="num" data-count="4">0</span>
+        <span class="num" data-count="4">4</span>
         <span class="label">Languages Fluent</span>
       </div>
       <div class="hero-stat">
-        <span class="num" data-count="20">0</span>
+        <span class="num" data-count="20">20</span>
         <span class="label">Years Experience</span>
       </div>
       <div class="hero-stat">
-        <span class="num" data-count="5">0</span>
+        <span class="num" data-count="5">5</span>
         <span class="label">Books Published</span>
       </div>
     </div>
@@ -581,7 +578,7 @@
     <div class="reveal" style="text-align: center;">
       <span class="eyebrow">Wanderlust</span>
       <div class="travel-counter">
-        <span class="num" id="travelCount">0</span>
+        <span class="num" id="travelCount">100+</span>
         <span class="label">Countries<br>& Counting</span>
       </div>
     </div>
