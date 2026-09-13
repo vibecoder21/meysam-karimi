@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikus Ventures — Investing in the Intelligence Era</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Wikus Ventures is a venture capital firm investing in transformative AI companies shaping the future of intelligence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --text-primary: #f0ede8;
+            --text-secondary: #8a8680;
+            --accent: #c9a96e;
+            --accent-glow: rgba(201, 169, 110, 0.15);
+            --accent-dim: #a68b55;
+            --border: rgba(255, 255, 255, 0.06);
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NOISE OVERLAY ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(201, 169, 110, 0.25);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 400;
+            line-height: 1.05;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero h1 em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.8s forwards;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 7rem 3rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.15;
+            max-width: 700px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* ===== THESIS ===== */
+        .thesis {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .thesis-card {
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thesis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .thesis-card:hover {
+            border-color: rgba(201, 169, 110, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .thesis-card:hover::before {
+            opacity: 1;
+        }
+
+        .thesis-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .thesis-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        .thesis-card p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1px;
+            margin-top: 4rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .portfolio-item {
+            background: var(--bg-card);
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            min-height: 140px;
+        }
+a.portfolio-item {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a.portfolio-item .portfolio-item-name {
+    color: var(--text-primary);
+}
+
+a.portfolio-item:hover .portfolio-item-name {
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+        .portfolio-item:hover {
+            background: rgba(201, 169, 110, 0.05);
+        }
+
+        .portfolio-item-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .portfolio-item-type {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .portfolio-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* ===== ABOUT / FOUNDER ===== */
+        .about {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-primary));
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-placeholder {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .about-role {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+        }
+
+        .about-bio {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .credential-tag {
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* ===== CONTACT / CTA ===== */
+        .contact {
+            text-align: center;
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact .section-heading {
+            margin: 0 auto 1rem;
+        }
+
+        .contact .section-desc {
+            margin: 0 auto 3rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-dim);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 169, 110, 0.25);
+        }
+
+        .contact-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-right a {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-right a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            nav { padding: 1.2rem 1.5rem; }
+            .nav-links { display: none; }
+            .nav-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+            section { padding: 5rem 1.5rem; }
+            .thesis-grid { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; gap: 2rem; }
+            .about-image { max-width: 300px; }
+            .hero-stats { gap: 2rem; flex-wrap: wrap; justify-content: center; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .hero-stats { gap: 1.5rem; }
+            .hero-stat-number { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="/" class="nav-logo">Wikus<span>.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/">← Meysam Karimi</a></li>
+            <li><a href="#thesis">Thesis</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">Welcome to Wikus Ventures</div>
+        <h1>Investing in the <em>Intelligence</em> Era</h1>
+        <p class="hero-sub">
+            Wikus Ventures backs transformative AI companies building the infrastructure and applications of tomorrow.
+        </p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="hero-stat-number">20+</span>
+                <span class="hero-stat-label">Portfolio Companies</span>
+            </div>
+            <div class="hero-stat">
+                <span class="hero-stat-number">AI</span>
+                <span class="hero-stat-label">Native Focus</span>
+            </div>
+            <div class="hero-stat">
+                <span class="hero-stat-number">4</span>
+                <span class="hero-stat-label">Investments Across Continents</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- THESIS -->
+    <section class="thesis" id="thesis">
+        <div class="reveal">
+            <span class="section-label">Investment Thesis</span>
+            <h2 class="section-heading">We believe intelligence is the <em>defining platform shift</em> of our generation</h2>
+            <p class="section-desc">
+                We invest at the intersection of frontier AI, infrastructure, and real-world application - where the most durable businesses are being built.
+            </p>
+        </div>
+        <div class="thesis-grid">
+            <div class="thesis-card reveal">
+                <div class="thesis-icon">⚡</div>
+                <h3>Frontier Models</h3>
+                <p>Backing the teams building and fine-tuning the foundation models that power the next wave of AI capabilities - from language to multimodal reasoning.</p>
+            </div>
+            <div class="thesis-card reveal">
+                <div class="thesis-icon">🔧</div>
+                <h3>AI Infrastructure</h3>
+                <p>Investing in the picks and shovels - compute, data pipelines, evaluation frameworks, and tooling that make AI systems reliable and scalable.</p>
+            </div>
+            <div class="thesis-card reveal">
+                <div class="thesis-icon">🌐</div>
+                <h3>Applied Intelligence</h3>
+                <p>Supporting companies that translate AI breakthroughs into real-world impact across robotics, healthcare, finance, and enterprise workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="reveal">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-heading">Partnering with founders shaping the future</h2>
+            <p class="section-desc">
+                A curated portfolio of AI-native companies across the stack - from foundational research to production-grade applications.
+            </p>
+        </div>
+        <div class="portfolio-grid reveal">
+    <a href="https://openai.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">OpenAI</span>
+        <span class="portfolio-item-type">Foundation Models</span>
+    </a>
+    <a href="https://www.anthropic.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Anthropic</span>
+        <span class="portfolio-item-type">AI Safety</span>
+    </a>
+    <a href="https://www.cerebras.net/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Cerebras</span>
+        <span class="portfolio-item-type">AI Compute</span>
+    </a>
+    <a href="https://consensys.net/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Consensys</span>
+        <span class="portfolio-item-type">Blockchain & Web3</span>
+    </a>
+    <a href="https://www.clonerobotics.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Clone Robotics</span>
+        <span class="portfolio-item-type">Robotics</span>
+    </a>
+    <a href="https://allyrobotics.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Ally Robotics</span>
+        <span class="portfolio-item-type">Robotics</span>
+    </a>
+    <a href="https://www.monogramorthopedics.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Monogram Orthopedics</span>
+        <span class="portfolio-item-type">Medical Robotics</span>
+    </a>
+    <a href="https://www.airtable.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Airtable</span>
+        <span class="portfolio-item-type">Low-Code Platform</span>
+    </a>
+    <a href="https://phantom.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Phantom</span>
+        <span class="portfolio-item-type">Crypto Wallet</span>
+    </a>
+    <a href="https://www.wisetack.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Wisetack</span>
+        <span class="portfolio-item-type">Fintech</span>
+    </a>
+    <a href="https://minicircle.io/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Minicircle</span>
+        <span class="portfolio-item-type">Biotech</span>
+    </a>
+    <a href="https://www.data.ai/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Data.ai</span>
+        <span class="portfolio-item-type">Mobile Analytics</span>
+    </a>
+    <a href="https://www.volleythat.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Volley</span>
+        <span class="portfolio-item-type">AI Games</span>
+    </a>
+    <a href="https://www.accredible.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Accredible</span>
+        <span class="portfolio-item-type">Credentials Platform</span>
+    </a>
+    <a href="https://www.eterneva.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">Eterneva</span>
+        <span class="portfolio-item-type">DeepTech</span>
+    </a>
+    <a href="https://fuelgems.com/" target="_blank" class="portfolio-item">
+        <span class="portfolio-item-name">FuelGems</span>
+        <span class="portfolio-item-type">Nanotechnology</span>
+    </a>
+    <div class="portfolio-item">
+        <span class="portfolio-item-name">& More</span>
+        <span class="portfolio-item-type">20+ Companies</span>
+    </div>
+</div>
+
+
+        <p class="portfolio-note reveal">Select portfolio companies shown. Full portfolio available upon request.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="reveal">
+            <span class="section-label">Founder</span>
+            <h2 class="section-heading">Operator-investor with a global lens</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image reveal">
+    <img src="Meysam_profile_pic.jpg" alt="Meysam Moradpour" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+</div>
+
+            <div class="about-text reveal">
+                <h3>Meysam Moradpour</h3>
+                <p class="about-role">Founder & Managing Partner</p>
+                <p class="about-bio">
+                    Meysam brings a rare combination of hands-on AI operations experience and venture investing acumen. As GenAI Operations Lead at Scale AI, he oversees reinforcement learning environments and RLHF operations for frontier model training across companies like OpenAI, Google DeepMind, and Meta.
+                </p>
+                <p class="about-bio">
+                    Before founding Wikus Ventures, he held senior roles at Google, Mastercard, and Yum! Brands — building expertise in digital products, partnerships, and business development across multiple continents. This global operating perspective shapes how he identifies and supports transformative AI companies.
+                </p>
+                <div class="about-credentials">
+                    <span class="credential-tag">Ops at Scale AI</span>
+                    <span class="credential-tag">Studied in Germany, US, China, UK</span>
+                    <span class="credential-tag">Ex-Google</span>
+                    <span class="credential-tag">Ex-Mastercard</span>
+                    <span class="credential-tag">Ex-Yum Brands</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="reveal">
+            <span class="section-label">Get in Touch</span>
+            <h2 class="section-heading">Building something in AI?<br>Let's talk.</h2>
+            <p class="section-desc">
+                We're always looking to meet exceptional founders working at the frontier of intelligence. Reach out to start a conversation.
+            </p>
+            <a href="mailto:contact.meysam@gmail.com" class="contact-btn">
+                Start a Conversation
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-left">© 2026 Wikus Ventures. All rights reserved.</div>
+        <div class="footer-right">
+            <a href="https://www.linkedin.com/company/wikusventures/" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/vcmeysam" target="_blank">X / Twitter</a>
+            <a href="mailto:contact.meysam@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
