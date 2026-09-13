@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://meysamkarimi.org/sitemap.xml
