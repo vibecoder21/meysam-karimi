@@ -1,0 +1,4 @@
+# Wikus Ventures sub-site now lives at wikuscapital.com
+/wikus https://www.wikuscapital.com/ 301!
+/wikus/ https://www.wikuscapital.com/ 301!
+/wikus/* https://www.wikuscapital.com/ 301!
