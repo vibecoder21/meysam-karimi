@@ -1,4 +1,2 @@
-# Wikus Ventures sub-site now lives at wikuscapital.com
-/wikus https://www.wikuscapital.com/ 301!
-/wikus/ https://www.wikuscapital.com/ 301!
-/wikus/* https://www.wikuscapital.com/ 301!
+# Site moved — redirect all traffic to the new Kimix-hosted build
+/* https://meysamkarimi.kimi.page/:splat 301!
